@@ -63,7 +63,7 @@ fetch(url, popularOptions)
         document.getElementById('anime-container').innerText = 'Failed to load anime data.';
     });
 
-
+// fetches the trending anime data from the api url
 const trendingQuery = `
   query {
     Page(page: 1, perPage: 50) {
