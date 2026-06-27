@@ -1,3 +1,18 @@
+// This deals with the hamburger toogle effect
+const toggle = document.getElementById('menu-toggle');
+const menu = document.getElementById('mobile-menu');
+const iconOpen = document.getElementById('icon-open');
+const iconClose = document.getElementById('icon-close');
+
+toggle.addEventListener('click', () => {
+  const isOpen = !menu.classList.contains('hidden');
+  menu.classList.toggle('hidden', isOpen);
+  menu.classList.toggle('flex', !isOpen);
+  iconOpen.classList.toggle('hidden', !isOpen);
+  iconClose.classList.toggle('hidden', isOpen);
+  toggle.setAttribute('aria-expanded', String(!isOpen));
+});
+
 //The anime API url
 const url = 'https://graphql.anilist.co';
 
@@ -49,11 +64,10 @@ fetch(url, popularOptions)
             }
 
             return `
-                <div class=" rounded-md bg-zinc-900 shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-indigo-500/25">
-                    <img src="${anime.coverImage.large}" alt="${title}">
+                <div class=" rounded-md bg-zinc-900 shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-indigo-500/25 mx-3">
+                    <img  class="rounded-t-md" src="${anime.coverImage.large}" alt="${title}">
                     <h2 class="text-center uppercase">${title}</h2>
                     ${airingHtml}
-                    </div>
                 </div>
             `;
         }).join('');
@@ -111,12 +125,11 @@ fetch(url, trendingOptions)
             }
 
             return `
-                <div class=" rounded-md bg-zinc-900 shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-indigo-500/25">
-                    <img src="${anime.coverImage.large}" alt="${title}">
+                <div class=" rounded-md bg-zinc-900 shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-indigo-500/25 mx-3">
+                    <img class="rounded-t-md" src="${anime.coverImage.large}" alt="${title}">
                     <h2 class="text-center uppercase">${title}</h2>
                     ${airingHtml}
-                    </div>
-                </div>
+                  </div>
             `;
         }).join('');
     })
