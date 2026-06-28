@@ -15,91 +15,78 @@
     <title>Anime Web Page</title>
 </head>
 
-<body class="bg-gradient-to-br from-slate-900 via-indigo-950 to-indigo-900 h-screen w-full text-white">
-    <header class="flex items-center justify-between px-3 md:px-6 py-14">
-        <div class="flex items-center gap-3">
-            <img src="logo/anime-away-face-svgrepo-com.svg" alt="website-logo" width="50px" height="50px">
-            <p class="text-[20px]">Anime<span class="text-lime-500">NinJutsu</span></p>
-        </div>
-        <div class="hidden md:flex items-center gap-6">
-            <nav>
-                <ul class="flex items-center gap-6">
-                    <li><a href="index.html"
-                            class="px-3 py-2 rounded-md hover:bg-blue-600 hover:text-white transition-all duration-200 text-[20px]">Home</a>
-                    </li>
-                    <li><a href="#"
-                            class="px-3 py-2 rounded-md hover:bg-blue-600 hover:text-white transition-all duration-200 text-[20px]">Anime</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="flex items-center gap-4">
-                <div class="relative w-full max-w-md">
-                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                        <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
-                    </div>
-                    <input type="text" id="search-input" placeholder="Search"
-                        class="block w-full rounded-lg border border-gray-300 bg-white py-2.5 pl-10 pr-4 text-sm text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
-                </div>
-                <button class="bg-blue-500 px-4 py-2 rounded-lg hover:bg-blue-600 text-white"
-                    id="searchButton">Search</button>
+<body class="min-h-screen w-full bg-gradient-to-br from-slate-900 via-indigo-950 to-indigo-900 text-white">
+    <header class="mx-auto flex w-full max-w-[1300px] flex-col gap-6 px-6 py-8 md:flex-row md:items-center md:justify-between md:px-14">
+        <div class="flex w-full items-center justify-between md:w-auto">
+            <div class="flex items-center gap-3">
+                <img src="logo/anime-away-face-svgrepo-com.svg" alt="website-logo" width="50px" height="50px">
+                <p class="text-[20px]">Anime<span class="text-lime-500">NinJutsu</span></p>
             </div>
+            <button id="menuToggle"
+                class="inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/10 p-2 text-white hover:bg-white/20 md:hidden"
+                aria-expanded="false" aria-controls="mobileNav">
+                <span class="sr-only">Open menu</span>
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
-
-        <!-- Hamburger button  that is visible on mobile view -->
-        <button id="menu-toggle" class="md:hidden p-2 rounded-md border border-gray-300 hover:bg-gradient-to-br from-slate-900 via-indigo-950 to-indigo-900"
-            aria-label="Toggle menu" aria-expanded="false">
-            <svg id="icon-open" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            <svg id="icon-close" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-    </header>
-
-    <!-- This creates a mobile menu that will be visible -->
-    <div id="mobile-menu" class="hidden md:hidden flex-col gap-2 px-4 py-3 border-b border-gray-200 bg-gradient-to-br from-slate-900 via-indigo-950 to-indigo-900">
-        <nav>
-            <ul class="flex flex-col gap-1">
+        <nav id="mobileNav" class="hidden w-full md:flex md:w-auto">
+            <ul class="flex flex-col gap-4 md:flex-row md:items-center md:justify-center md:gap-6">
                 <li><a href="index.html"
-                        class="block px-3 py-2 rounded-md hover:bg-blue-600 hover:text-white transition-all duration-200 text-lg">Home</a>
+                        class="block rounded-md px-3 py-2 text-[20px] transition-all duration-200 hover:bg-blue-600 hover:text-white">Home</a>
                 </li>
                 <li><a href="#"
-                        class="block px-3 py-2 rounded-md hover:bg-blue-600 hover:text-white transition-all duration-200 text-lg">Anime</a>
+                        class="block rounded-md px-3 py-2 text-[20px] transition-all duration-200 hover:bg-blue-600 hover:text-white">Anime</a>
                 </li>
             </ul>
         </nav>
-        <div class="relative">
-            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
+        <div class="flex w-full flex-col gap-4 md:w-auto md:flex-row md:items-center md:gap-8">
+            <div class="relative w-full md:w-[420px]">
+                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <input type="text" name="search" id="search-input" placeholder="Search"
+                    class="block w-full rounded-lg border border-gray-300 bg-white py-2.5 pl-10 pr-4 text-sm text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
             </div>
-            <input type="text" placeholder="Search"
-                class="block w-full rounded-lg border border-gray-300 bg-white py-2.5 pl-10 pr-4 text-sm text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+            <button class="w-full rounded-lg bg-blue-500 px-4 py-2 hover:bg-blue-600 md:w-auto" id="searchButton">Search</button>
         </div>
-        <button class="w-full bg-blue-500 px-4 py-2 rounded-lg hover:bg-blue-600 text-white">Search</button>
-    </div>
     </header>
-    <main class="main-content">
+    <main class="mx-auto max-w-[1300px] px-6 pb-10 md:px-14">
+        <!-- Current focus: improve the anime search experience and present matching results in a polished card-based UI. -->
+        <section id="search-results-section" class="mt-2 hidden rounded-2xl border border-white/10 bg-slate-950/50 p-4 shadow-lg shadow-black/20 backdrop-blur md:p-6">
+            <div class="mb-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                <div>
+                    <h2 class="text-[25px] font-['Roboto_Slab'] md:text-[32px]">Search Results</h2>
+                    <p id="search-results-summary" class="text-sm text-slate-300"></p>
+                </div>
+                <button id="clear-search" class="hidden rounded-lg border border-white/10 px-3 py-2 text-sm text-slate-200 hover:bg-white/10">
+                    Clear search
+                </button>
+            </div>
+            <div id="search-results" class="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-8"></div>
+        </section>
+
         <div>
-            <h2 class="text-[25px] md:text-[32px] font-['Roboto_Slab'] mx-3">Finished / Ongoing Anime</h2>
-            <div id="anime-container" class="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-8 mt-8"></div>
+            <h2 class="mx-3 text-[25px] font-['Roboto_Slab'] md:text-[32px]">Finished / Ongoing Anime</h2>
+            <div id="anime-container" class="mt-8 grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-8"></div>
         </div>
         <div>
-            <h2 class="text-[25px] md:text-[32px] mt-8 font-['Roboto_Slab'] mx-3">Trending Anime</h2>
-            <div id="trending-container" class="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-8 mt-8"></div>
+            <h2 class="mx-3 mt-8 text-[25px] font-['Roboto_Slab'] md:text-[32px]">Trending Anime</h2>
+            <div id="trending-container" class="mt-8 grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-8"></div>
         </div>
         <div class="favourites">
-            <h2 class="text-[25px] md:text-[32px] font-['Roboto_Slab'] mx-3">Favourites</h2>
+            <h2 class="mx-3 text-[25px] font-['Roboto_Slab'] md:text-[32px]">Favourites</h2>
             <div id="favourite-box"></div>
         </div>
     </main>
-    <footer class="text-center text-xs">
+    <footer class="pb-8 text-center text-xs">
         © 2026 AnimeNinjutsu. All rights reserved.</footer>
     <script src="index.js"></script>
 </body>
